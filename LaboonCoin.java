@@ -86,10 +86,10 @@ public class LaboonCoin {
 		
 		int n = 10000000;
 		
-		for(char c: data){
+		for(int i = 0; i < data.length();i++){
 			
-			n *= (int)c;
-			n += (int)c;
+			n *= (int)data.charAt(i);
+			n += (int)data.charAt(i);
 			
 		}
 		
