@@ -82,11 +82,11 @@ public class LaboonCoin {
     
     public int hash(String data) {
 	// TODO - IMPLEMENT LABOONHASH
-		CharSequence seq = data.subSequence(0,data.length());
+		//CharSequence seq = data.subSequence(0,data.length());
 		
 		int n = 10000000;
 		
-		for(char c: seq){
+		for(char c: data){
 			
 			n *= (int)c;
 			n += (int)c;
@@ -153,7 +153,7 @@ public class LaboonCoin {
 	while (!foundNonce) {
 	    toTry = String.format("%08x", prevHash) + String.format("%08x", nonce) + data;
 	    // Uncomment for debugging purposes
-	    // System.out.print("Trying: " + toTry + ".. ");
+	    System.out.print("Trying: " + toTry + ".. ");
 	    
 	    hashVal = hash(toTry);
 	    System.out.println("hash: " + String.format("%08x", hashVal));
