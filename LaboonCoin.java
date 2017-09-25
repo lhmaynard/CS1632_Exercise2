@@ -1,4 +1,5 @@
 import java.util.*;
+import java.lang.*;
 
 public class LaboonCoin {
 
@@ -112,8 +113,18 @@ public class LaboonCoin {
      */
     
     public boolean validHash(int difficulty, int hash) {
-	// TODO - CHECK FOR VALID HASHES
-	return false;
+
+		String hex = Integer.toHexString(hash);
+
+		while(hex.length() <8){
+			hex='0'+hex;
+		}
+
+		for(int i =0; i<difficulty, i++){
+			if(hex[i]!='0')return false
+		}
+
+		return true;
     }
 
     /**
