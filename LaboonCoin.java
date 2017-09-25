@@ -81,7 +81,19 @@ public class LaboonCoin {
     
     public int hash(String data) {
 	// TODO - IMPLEMENT LABOONHASH
-	return -1;
+		CharSequence seq = data.subSequence(0,data.length());
+		
+		int n = 10000000;
+		
+		for(char c: seq){
+			
+			n *= (int)c;
+			n += (int)c;
+			
+		}
+		
+		
+	return n;
     }
 
     /**
