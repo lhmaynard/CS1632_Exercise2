@@ -120,8 +120,10 @@ public class LaboonCoin {
 			hex='0'+hex;
 		}
 
-		for(int i =0; i<difficulty, i++){
-			if(hex[i]!='0')return false
+		char[] hexA = hex.toCharArray();
+
+		for(int i =0; i<difficulty; i++){
+			if(hexA[i]!='0')return false;
 		}
 
 		return true;
