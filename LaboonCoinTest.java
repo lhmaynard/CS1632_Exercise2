@@ -12,7 +12,7 @@ public class LaboonCoinTest {
     public void setup() {
 	_l = new LaboonCoin();
     }
-    
+
     // Assert that creating a new LaboonCoin instance
     // does not return a null reference
     @Test
@@ -44,7 +44,7 @@ public class LaboonCoinTest {
 	String blockChain = _l.getBlockChain();
 	assertEquals("", blockChain);
     }
-    
+
 
     // Viewing the blockchain as a full string which has valid
     // elements should include all of the elements.  Note that the
@@ -57,7 +57,37 @@ public class LaboonCoinTest {
 	String blockChain = _l.getBlockChain();
 	assertEquals("TESTBLOCK1|00000000|000010e9|000a3cd8\nTESTBLOCK2|000a3cd8|00002ca8|0008ff30\nTESTBLOCK3|0008ff30|00002171|0009f908\n", blockChain);
     }
-	    
+
     // TODO - PUT YOUR SIX TESTS HERE
-    
+
+    // testing if validHash() correctly approves a 3 difficulty hash
+    @Test
+    public void testValidThreeDifficulty(){
+     int hash = 69905;
+     int difficulty = 3;
+     boolean result = _l.validHash(difficulty, hash);
+     assertEquals(result, true);
+    }
+
+    // testing if validHash() correctly rejects a 3 difficulty hash
+    @Test
+    public void testInvalidThreeDifficulty(){
+     int hash = 1118481;
+     int difficulty = 3;
+     boolean result = _l.validHash(difficulty, hash);
+     assertEquals(result, false);
+    }
+
+    // testing if validHash() correctly rejects a 3 difficulty hash where
+    // the three zeros are at the end of the hash
+    @Test
+    public void testInvalidThreeDifficulty(){
+     int hash = 286330880;
+     int difficulty = 3;
+     boolean result = _l.validHash(difficulty, hash);
+     assertEquals(result, false);
+    }
+
+
+
 }
