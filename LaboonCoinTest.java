@@ -81,7 +81,7 @@ public class LaboonCoinTest {
     // testing if validHash() correctly rejects a 3 difficulty hash where
     // the three zeros are at the end of the hash
     @Test
-    public void testInvalidThreeDifficulty(){
+    public void testInvalidZerosEnd(){
      int hash = 286330880;
      int difficulty = 3;
      boolean result = _l.validHash(difficulty, hash);
