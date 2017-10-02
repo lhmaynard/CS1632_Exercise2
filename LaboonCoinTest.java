@@ -87,6 +87,32 @@ public class LaboonCoinTest {
      boolean result = _l.validHash(difficulty, hash);
      assertEquals(result, false);
     }
+	
+	//testing if hash() works with empty string
+	@Test
+	public void testEmpty(){
+		String str = "";
+		int LaboonHash = _l.hash(str);
+		String hex = Integer.toHexString(LaboonHash);
+		assertEquals(hex, "989680");
+	}
+	
+	//testing if hash() works with large values that wrap around
+	@Test
+	public void testLarge(){
+		String str = "boo";
+		int LaboonHash = _l.hash(str);
+		String hex = Integer.toHexString(LaboonHash);
+		assertEquals(hex, "551fda32");
+	}
+	
+	//testing if hash() works with average value 
+	@Test
+	public void testAverage(){
+		String str = "b";
+		int LaboonHash = _l.hash(str);
+		assertEquals(LaboonHash, 980000098);
+	}
 
 
 
